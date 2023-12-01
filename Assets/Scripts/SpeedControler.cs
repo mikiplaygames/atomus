@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpeedControler : MonoBehaviour
 {
     [SerializeField] private RectTransform spedometer;
-    public static int Speed = 1;
+    public static int Speed = 500;
     private void Awake()
     {
         RefreshSpedometer();
