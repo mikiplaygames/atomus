@@ -4,8 +4,8 @@ public class SpeedControler : MonoBehaviour
 {
     public static int Speed = 1;
 
-    public void SetSpeed(int i)
+    public void SetSpeed(float i)
     {
-        Speed = i;
+        Speed = (int)i;
     }
 }
