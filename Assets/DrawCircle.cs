@@ -5,22 +5,22 @@ using UnityEngine;
 public class DrawCircle : MonoBehaviour
 {
     [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private float radius = 2f;
+    [SerializeField] private int steps = 120;
 
     void Start()
     {
-        RenderCircle(112, 5f);
+        RenderCircle(steps, radius);
     }
     private void RenderCircle(int steps, float radius)
     {
-        lineRenderer.positionCount = steps;
-        for (int currentStep = 0; currentStep < steps; currentStep++)
+        lineRenderer.positionCount = steps + 1;
+
+        for (int currentStep = 0; currentStep <= steps; currentStep++)
         {
-            float circumferenceProgress = (float)currentStep / steps;
-            float currentRadian = circumferenceProgress * 2 * Mathf.PI;
-            float scaled = Mathf.Cos(currentRadian);
-            float yScaled = Mathf.Sin(currentRadian);
-            float x = scaled * radius;
-            float y = yScaled * radius;
+            float angle = 2 * Mathf.PI * currentStep / steps;
+            float x = Mathf.Cos(angle) * radius;
+            float y = Mathf.Sin(angle) * radius;
             Vector3 currentPosition = new Vector3(x, y, 0);
             lineRenderer.SetPosition(currentStep, currentPosition);
         }
