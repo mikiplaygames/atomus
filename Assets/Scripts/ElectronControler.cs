@@ -22,7 +22,7 @@ public class ElectronControler : MonoBehaviour
         rb.velocity = Vector3.zero;
         properties.SetN((int)transform.localPosition.x - 1);
         other.gameObject.SetActive(false);
-        yield return new WaitForSeconds(Random.Range(0.01f, 5f));
+        yield return new WaitForSeconds(Random.Range(0.01f, 5f) * Time.timeScale);
         transform.localPosition -= Vector3.right;
         properties.SetN((int)transform.localPosition.x - 1);
         other.gameObject.SetActive(true);

@@ -28,7 +28,6 @@ public class Properties : MonoBehaviour
     {
         n = newN;
         UpdateNText();
-        
     }
     private void CalculateL()
     {
