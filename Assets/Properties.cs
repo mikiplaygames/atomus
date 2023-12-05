@@ -7,6 +7,7 @@ using UnityEngine;
 public class Properties : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI equationText;
+    [SerializeField] private TextMeshProUGUI nText;
 
     public const double PLANCK = 6.6262e-27;
 
@@ -17,6 +18,17 @@ public class Properties : MonoBehaviour
     {
         SpeedControler.OnSpeedChange.AddListener(CalculateL);
         CalculateL();
+        UpdateNText();
+    }
+    private void FixedUpdate()
+    {
+        CalculateL();
+    }
+    public void SetN(int newN)
+    {
+        n = newN;
+        UpdateNText();
+        
     }
     private void CalculateL()
     {
@@ -26,5 +38,9 @@ public class Properties : MonoBehaviour
     private void UpdateLText()
     {
         equationText.SetText("<i>L</i> = n ∙ ( <i>h</i> / 2π ) ≈ " + L.ToString("0.00E0"));
+    }
+    private void UpdateNText()
+    {
+        nText.SetText("n = " + n.ToString());
     }
 }
