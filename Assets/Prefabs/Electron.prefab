@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equationText: {fileID: 0}
+  nText: {fileID: 0}
 --- !u!114 &4389795302312785981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increment: 1
+  properties: {fileID: 5402453515270421959}
 --- !u!1 &7352330798152725326
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,6 @@ public class Orbit : MonoBehaviour
 {
     void FixedUpdate()
     {
-        transform.RotateAround(Vector3.zero, transform.forward, 50);
+        transform.RotateAround(Vector3.zero, transform.forward, 10);
     }
 }

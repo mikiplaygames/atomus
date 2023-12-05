@@ -24,7 +24,7 @@ public class PhotonControler : MonoBehaviour
         while (enabled)
         {
             photons.Get();
-            yield return new WaitForSeconds((1001f - SpeedControler.Speed) / 700f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
     
@@ -36,7 +36,7 @@ public class PhotonControler : MonoBehaviour
     private void EnablePhoton(Transform _photon)
     {
         pos = transform.position;
-        _photon.position = new Vector3(pos.x, pos.y + Random.Range(-15f,15f), pos.z);
+        _photon.position = new Vector3(pos.x, pos.y + Random.Range(-10f,10f), pos.z);
         _photon.gameObject.SetActive(true);
         var collider = _photon.GetComponent<Collider>();
         collider.enabled = true;
