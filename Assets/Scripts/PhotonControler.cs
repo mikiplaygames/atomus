@@ -38,6 +38,8 @@ public class PhotonControler : MonoBehaviour
         pos = transform.position;
         _photon.position = new Vector3(pos.x, pos.y + Random.Range(-15f,15f), pos.z);
         _photon.gameObject.SetActive(true);
+        var collider = _photon.GetComponent<Collider>();
+        collider.enabled = true;
     }
     private void DisablePhoton(Transform _photon)
     {

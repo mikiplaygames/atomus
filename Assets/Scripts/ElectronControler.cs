@@ -18,6 +18,8 @@ public class ElectronControler : MonoBehaviour
     }
     private IEnumerator ReleaseAfterTime(Transform other)
     {
+        var collider = other.GetComponent<Collider>();
+        collider.enabled = false;
         var rb = other.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         properties.SetN((int)transform.localPosition.x - 1);
