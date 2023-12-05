@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,18 +9,24 @@ public class Properties : MonoBehaviour
     [SerializeField] private TextMeshProUGUI equationText;
 
     public const double PLANCK = 6.6262e-27;
-    
+
     private int n = 1;
     private double L;
 
     private void Awake()
     {
-        SetOrbit();
+        SetOrbit(n);
     }
 
-    public void SetOrbit()
+    public void SetN(int newN)
     {
-        gameObject.transform.position = new Vector3(n * 5, 0, 0);
+        n = newN;
+        SetOrbit(n);
+    }
+
+    private void SetOrbit(int orbit)
+    {
+        gameObject.transform.position = new Vector3(orbit * 5, 0, 0);
         CalculateL();
     }
 
@@ -32,6 +38,6 @@ public class Properties : MonoBehaviour
 
     private void UpdateLText()
     {
-        equationText.SetText("<i>L</i> = " + L);
+        equationText.SetText("<i>L</i> = n ∙ ( <i>h</i> / 2π ) ≈ " + L.ToString("0.00E0"));
     }
 }
