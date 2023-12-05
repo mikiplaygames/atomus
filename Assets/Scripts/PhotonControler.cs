@@ -9,7 +9,7 @@ public class PhotonControler : MonoBehaviour
     public static PhotonControler Instance;
     [SerializeField] GameObject photonPrefab;
     public ObjectPool<Transform> photons;
-
+    Vector3 pos;
     private void Awake()
     {
         Instance = this;
@@ -23,19 +23,20 @@ public class PhotonControler : MonoBehaviour
     {
         while (enabled)
         {
-            var pos = transform.position;
-            Debug.Log(" new Vector3(pos.x, pos.y + Random.Range(-15f,15f), pos.z) = " +  new Vector3(pos.x, pos.y + Random.Range(-15f,15f), pos.z));
-            photons.Get().position = new Vector3(pos.x, pos.y + Random.Range(-15f,15f), pos.z);
+            photons.Get();
             yield return new WaitForSeconds((1001f - SpeedControler.Speed) / 700f);
         }
     }
     
     private Transform CreatePhoton()
     {
-        return Instantiate(photonPrefab).transform;
+        pos = transform.position;
+        return Instantiate(photonPrefab, new Vector3(pos.x, pos.y + Random.Range(-15f,15f), pos.z), Quaternion.identity).transform;
     }
     private void EnablePhoton(Transform _photon)
     {
+        pos = transform.position;
+        _photon.position = new Vector3(pos.x, pos.y + Random.Range(-15f,15f), pos.z);
         _photon.gameObject.SetActive(true);
     }
     private void DisablePhoton(Transform _photon)
