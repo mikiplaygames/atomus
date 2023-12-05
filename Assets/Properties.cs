@@ -13,29 +13,16 @@ public class Properties : MonoBehaviour
     private int n = 1;
     private double L;
 
-    private void Awake()
+    private void Start()
     {
-        SetOrbit(n);
-    }
-
-    public void SetN(int newN)
-    {
-        n = newN;
-        SetOrbit(n);
-    }
-
-    private void SetOrbit(int orbit)
-    {
-        gameObject.transform.position = new Vector3(orbit * 5, 0, 0);
+        SpeedControler.OnSpeedChange.AddListener(CalculateL);
         CalculateL();
     }
-
     private void CalculateL()
     {
         L = n * (PLANCK / (2 * Mathf.PI));
         UpdateLText();
     }
-
     private void UpdateLText()
     {
         equationText.SetText("<i>L</i> = n ∙ ( <i>h</i> / 2π ) ≈ " + L.ToString("0.00E0"));

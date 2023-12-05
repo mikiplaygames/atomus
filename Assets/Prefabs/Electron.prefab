@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4072015282639909031}
   - component: {fileID: 2613399637751486202}
   - component: {fileID: 7332638153292739611}
-  - component: {fileID: 7561601476682762136}
+  - component: {fileID: 5402453515270421959}
+  - component: {fileID: 4389795302312785981}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Electron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8374246522407126372}
   m_Father: {fileID: 0}
@@ -101,13 +102,13 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7561601476682762136
+--- !u!114 &5402453515270421959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,9 +117,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3182641073810290242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9522e81503cb7d34e927fc4f7415a858, type: 3}
+  m_Script: {fileID: 11500000, guid: 5da2cce54bd65cb418cd860bca0c044b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equationText: {fileID: 0}
+--- !u!114 &4389795302312785981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182641073810290242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d28d5ec8f604a4e954e55439ea20b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increment: 1
 --- !u!1 &7352330798152725326
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +218,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5
+        value: 0.16981506
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -213,11 +228,11 @@ TrailRenderer:
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -1.6705766
-        outSlope: -1.6705766
+        inSlope: 0.07507448
+        outSlope: 0.07507448
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.14682537
+        inWeight: 0.37698412
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -241,8 +256,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 40092
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -251,7 +266,7 @@ TrailRenderer:
       m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 3
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
